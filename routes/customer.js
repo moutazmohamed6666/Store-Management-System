@@ -22,7 +22,7 @@ router.post('/',function(req,res){
         });
     });
 });
-
+  
 // get all customers
 router.get('/',function(req,res){
     customerModel.find().then(docs=>{

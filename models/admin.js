@@ -4,7 +4,8 @@ const schema=mongoose.Schema;
 //schema
 const adminSchema=new schema({
     mail:{type:String,required:true}, //user name
-    password:{type:String,required:true}
+    password:{type:String,required:true},
+    role:{type:String,required:true}
 });
 
 

@@ -2,6 +2,7 @@ const express=require('express');
 const mongoose=require('mongoose');
 const  app = express();
 const bodyParser=require('body-parser');
+mongoose.set('useFindAndModify', false);
 
 // promises
 
@@ -18,5 +19,7 @@ app.use('/products',require('./routes/product'));
 app.use('/bills',require('./routes/bill'));
 app.use('/customer',require('./routes/customer'));
 app.use('/supplier',require('./routes/supplier'));
+app.use('/store',require('./routes/store'));
+app.use('/collecting',require('./routes/collecting'));
 app.listen(3000,()=>{console.log(`listenning 3000`)});
 

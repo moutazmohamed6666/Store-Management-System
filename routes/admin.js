@@ -28,6 +28,7 @@ router.post('/singup',function(req,res){
                 else{
                     const newAdmin=new Admin({
                         mail:req.body.mail,
+                        role:req.body.role,
                         password:hash
                     });
                     newAdmin
@@ -68,12 +69,13 @@ router.post('/login',function(req,res){
            }
            if (result)
            {
-               const token =jwt.sign({email:admin.mail},
+               const token =jwt.sign({email:admin.mail,role:admin.role},
                 'store',
                 { expiresIn: "12h" });
                 return res.status(200).json({
                     massege:'تم الدخول ',
-                    token:token
+                    token:token,
+                    role:admin.role
                 });
            }
            return res.status(401).json({
@@ -87,26 +89,5 @@ router.post('/login',function(req,res){
         });
     })
 });
-
-// router.get('/',(req,res)=>{
-
-//    Admin.find({},'password mail',(err,docs)=>{
-//     const response = {
-//         count: docs.length,
-//         products: docs.map(doc => {
-//           return {
-//             name: doc.mail,
-//             password: doc.password,
-//             _id: doc._id,
-//             request: {
-//               type: "GET",
-//               url: "http://localhost:3000/products/" + doc._id
-//             }
-//           };
-//         })
-//       };
-//        res.send(response);
-//    }) 
-// })
 
 module.exports=router;

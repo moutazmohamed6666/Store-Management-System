@@ -16,7 +16,11 @@ const billSchema=new schema({
     customerName:{type:String,required:true},
     date:{type:Date,required:true},
     numberOfBill:{type:Number,required:true},      // db.collection.count()¶
-    products:{type:[productSchema],required:true}
+    products:{type:[productSchema],required:true},
+    total:{type:Number,required:true},
+    paid:{type:Number,required:true},
+    rest:{type:Number,required:true}
+
 });
 const bill=mongoose.model('bills',billSchema);
 

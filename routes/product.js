@@ -45,7 +45,7 @@ router.post('/Add',function(req,res){
 // get products
 
 router.get('/',function(req,res){
-    ProductModel.find({},'code name numberOfPieces numberOfCartons store sellingPrice')
+    ProductModel.find({},'code name numberOfPieces imgPath numberOfCartons store sellingPrice')
     .then(docs=>{
         res.status(200).json({
             products:docs
@@ -141,4 +141,7 @@ router.patch('/returned',function(req,res){
     
     });
     
+
+    
+
 module.exports=router;
